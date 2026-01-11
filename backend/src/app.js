@@ -12,6 +12,14 @@ const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const adminRoutes = require("./routes/admin.routes");
 
+const productRoutes = require("./routes/product.routes");
+
+const shopRoutes = require("./routes/shop.routes");
+app.use("/shop", shopRoutes);
+
+app.use("/products", productRoutes);
+
+
 app.use("/users", userRoutes);
 app.use("/admin", adminRoutes);
 
