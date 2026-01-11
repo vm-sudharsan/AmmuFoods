@@ -87,3 +87,13 @@ const getAdminDashboard = async (req, res) => {
 };
 
 module.exports.getAdminDashboard = getAdminDashboard;
+const getSystemHealth = async (req, res) => {
+  res.json({
+    status: "OK",
+    uptime: process.uptime(),
+    memory: process.memoryUsage(),
+    timestamp: new Date(),
+  });
+};
+
+module.exports.getSystemHealth = getSystemHealth;

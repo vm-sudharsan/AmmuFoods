@@ -48,3 +48,9 @@ router.patch(
   allowRoles("ADMIN", "DEVELOPER_ADMIN"),
   updateOrderStatus
 );
+router.get(
+  "/system/health",
+  auth,
+  allowRoles("DEVELOPER_ADMIN"),
+  getSystemHealth
+);
