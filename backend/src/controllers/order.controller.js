@@ -26,3 +26,17 @@ const getMyOrders = async (req, res) => {
 };
 
 module.exports = { placeOrder, getMyOrders };
+
+const updateOrderStatus = async (req, res) => {
+  const { status } = req.body;
+
+  const order = await Order.findByIdAndUpdate(
+    req.params.id,
+    { status },
+    { new: true }
+  );
+
+  res.json({ message: "Order status updated", order });
+};
+
+module.exports.updateOrderStatus = updateOrderStatus;

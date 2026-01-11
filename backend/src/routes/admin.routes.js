@@ -31,3 +31,20 @@ router.post(
   allowRoles("ADMIN", "DEVELOPER_ADMIN"),
   rejectShopRequest
 );
+
+const { getAdminDashboard } = require("../controllers/admin.controller");
+
+router.get(
+  "/dashboard",
+  auth,
+  allowRoles("ADMIN", "DEVELOPER_ADMIN"),
+  getAdminDashboard
+);
+const { updateOrderStatus } = require("../controllers/order.controller");
+
+router.patch(
+  "/orders/:id/status",
+  auth,
+  allowRoles("ADMIN", "DEVELOPER_ADMIN"),
+  updateOrderStatus
+);

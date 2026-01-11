@@ -68,3 +68,22 @@ module.exports = {
   approveShopRequest,
   rejectShopRequest,
 };
+const { getTomorrowManufacturingData } = require("../services/report.service");
+const Notification = require("../models/Notification.model");
+
+const getAdminDashboard = async (req, res) => {
+  const manufacturingData = await getTomorrowManufacturingData();
+
+  const notifications = await Notification.find({
+    targetRole: "ADMIN",
+  })
+    .sort({ priority: -1, createdAt: -1 })
+    .limit(10);
+
+  res.json({
+    manufacturing: manufacturingData,
+    notifications,
+  });
+};
+
+module.exports.getAdminDashboard = getAdminDashboard;
