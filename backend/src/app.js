@@ -15,6 +15,14 @@ const adminRoutes = require("./routes/admin.routes");
 const productRoutes = require("./routes/product.routes");
 
 const shopRoutes = require("./routes/shop.routes");
+
+const eventRoutes = require("./routes/event.routes");
+
+const analyticsRoutes = require("./routes/analytics.routes");
+app.use("/analytics", analyticsRoutes);
+
+app.use("/events", eventRoutes);
+
 app.use("/shop", shopRoutes);
 
 app.use("/products", productRoutes);
