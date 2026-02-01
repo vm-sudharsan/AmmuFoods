@@ -2,7 +2,7 @@ const express = require("express");
 const { body } = require("express-validator");
 const auth = require("../middlewares/auth.middleware");
 const validate = require("../middlewares/validate.middleware");
-const { submitShopRequest } = require("../controllers/user.controller");
+const { submitShopRequest, getShopRequestStatus } = require("../controllers/user.controller");
 
 const router = express.Router();
 
@@ -16,7 +16,10 @@ router.post(
     body("contactNumber").notEmpty(),
   ],
   validate,
+  validate,
   submitShopRequest
 );
+
+router.get("/shop-request", auth, getShopRequestStatus);
 
 module.exports = router;

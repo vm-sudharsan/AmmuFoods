@@ -40,6 +40,15 @@ router.get(
   allowRoles("ADMIN", "DEVELOPER_ADMIN"),
   getAdminDashboard
 );
+
+const { getAllOrders } = require("../controllers/order.controller");
+
+router.get(
+  "/orders",
+  auth,
+  allowRoles("ADMIN", "DEVELOPER_ADMIN"),
+  getAllOrders
+);
 const { updateOrderStatus } = require("../controllers/order.controller");
 
 router.patch(
@@ -48,6 +57,8 @@ router.patch(
   allowRoles("ADMIN", "DEVELOPER_ADMIN"),
   updateOrderStatus
 );
+const { getSystemHealth } = require("../controllers/admin.controller");
+
 router.get(
   "/system/health",
   auth,

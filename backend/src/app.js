@@ -27,7 +27,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"], // frontend dev URL
+    origin: ["http://localhost:3000", "http://localhost:5173"], // frontend dev URL
     credentials: true, // allow cookies
   })
 );
@@ -62,11 +62,11 @@ app.use(cookieParser());
 app.use("/auth", authRoutes);
 
 
-app.get('/health',(req,res)=> {
-    res.status(200).json({
-        status:"ok",
-        message: "AmmuFoods Backend is running ",
-    });
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "AmmuFoods Backend is running ",
+  });
 });
 
-module.exports=app;
+module.exports = app;

@@ -51,8 +51,17 @@ const updateEventStatus = async (req, res) => {
   res.json({ message: "Event status updated", event });
 };
 
+// USER: Get my event requests
+const getUserEvents = async (req, res) => {
+  const events = await EventRequest.find({ userId: req.user._id }).sort({
+    createdAt: -1,
+  });
+  res.json({ events });
+};
+
 module.exports = {
   createEventRequest,
   getAllEventRequests,
   updateEventStatus,
+  getUserEvents,
 };

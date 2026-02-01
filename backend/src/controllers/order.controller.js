@@ -25,7 +25,17 @@ const getMyOrders = async (req, res) => {
   res.json({ orders });
 };
 
-module.exports = { placeOrder, getMyOrders };
+// ADMIN: Get all orders
+const getAllOrders = async (req, res) => {
+  const orders = await Order.find()
+    .populate("shopUserId", "name email")
+    .populate("items.productId", "name unit")
+    .sort({ createdAt: -1 });
+
+  res.json({ orders });
+};
+
+module.exports = { placeOrder, getMyOrders, getAllOrders };
 
 const updateOrderStatus = async (req, res) => {
   const { status } = req.body;
