@@ -33,4 +33,9 @@ const submitShopRequest = async (req, res) => {
   });
 };
 
-module.exports = { submitShopRequest };
+const getShopRequestStatus = async (req, res) => {
+  const request = await ShopRequest.findOne({ userId: req.user._id });
+  res.json({ request });
+};
+
+module.exports = { submitShopRequest, getShopRequestStatus };

@@ -5,12 +5,14 @@ const {
   createEventRequest,
   getAllEventRequests,
   updateEventStatus,
+  getUserEvents,
 } = require("../controllers/event.controller");
 
 const router = express.Router();
 
 // USER + SHOP
 router.post("/", auth, allowRoles("USER", "SHOP"), createEventRequest);
+router.get("/my-events", auth, allowRoles("USER", "SHOP"), getUserEvents);
 
 // ADMIN
 router.get(
