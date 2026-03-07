@@ -13,7 +13,7 @@ const Footer = () => {
                             Authentic Indian sweets , made with love and traditional recipes. Bringing the taste of celebration to your doorstep.
                         </p>
                         <div className="flex space-x-4 pt-2">
-                            <a href="https://www.instagram.com/ammufoods.ac?igsh=MXRrZDRuZmQ2Z2xiYg%3D%3D" target="_blank" rel="noopener noreferrer" className="hover:text-brand-yellow transition-colors"><Instagram size={20} /></a>
+                            <a href="https://www.instagram.com/ammufoods.ac?igsh=MXRrZDRuZmQ2Z2xiYg==" target="_blank" rel="noopener noreferrer" className="hover:text-brand-yellow transition-colors"><Instagram size={20} /></a>
 
                         </div>
                     </div>
