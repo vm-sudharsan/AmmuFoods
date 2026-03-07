@@ -78,7 +78,10 @@ const Home = () => {
                         </div>
 
                         <div className="pt-8">
-                            <button className="bg-brand-red text-white px-10 py-3 rounded-full font-bold text-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-200">
+                            <button 
+                                onClick={() => navigate('/order')}
+                                className="bg-brand-red text-white px-10 py-3 rounded-full font-bold text-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-200"
+                            >
                                 Order Now
                             </button>
                         </div>
